@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="zh" data-lang="zh">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tadika Suria Cemerlang · 小可爱幼儿园</title>
+<meta name="description" content="Tadika Suria Cemerlang — 小可爱幼儿园。托儿所、功课班、珠心算、美术班、小学补习班、小学安亲班。专心于爱,专注于教。" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #FF9A3C;
+    --primary-dark: #E8811F;
+    --secondary: #4FB8FF;
+    --accent: #FF6B9D;
+    --yellow: #FFD93D;
+    --green: #6BCB77;
+    --cream: #FFF8E7;
+    --ink: #2C2C54;
+    --muted: #666;
+    --white: #ffffff;
+    --radius: 20px;
+    --shadow: 0 8px 24px rgba(44, 44, 84, 0.08);
+    --shadow-lg: 0 16px 40px rgba(44, 44, 84, 0.12);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Fredoka', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: var(--primary-dark); text-decoration: none; }
+
+  /* NAV */
+  header {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255, 248, 231, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid rgba(255, 154, 60, 0.15);
+  }
+  .nav {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 24px; gap: 16px;
+  }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand-logo {
+    width: 52px; height: 52px; border-radius: 50%;
+    object-fit: cover; background: var(--white);
+    box-shadow: var(--shadow);
+  }
+  .brand-name { font-weight: 700; font-size: 18px; line-height: 1.2; }
+  .brand-sub { font-size: 12px; color: var(--muted); }
+  .nav-links { display: flex; gap: 22px; align-items: center; }
+  .nav-links a { color: var(--ink); font-weight: 500; font-size: 15px; }
+  .nav-links a:hover { color: var(--primary-dark); }
+  .lang-switch { display: flex; gap: 4px; background: var(--white); border-radius: 999px; padding: 4px; box-shadow: var(--shadow); }
+  .lang-switch button {
+    border: 0; background: transparent; padding: 6px 12px;
+    border-radius: 999px; cursor: pointer; font-size: 13px; font-weight: 600;
+    color: var(--muted); font-family: inherit;
+  }
+  .lang-switch button.active { background: var(--primary); color: white; }
+  .menu-btn { display: none; border: 0; background: transparent; font-size: 28px; cursor: pointer; color: var(--ink); }
+
+  /* HERO */
+  .hero {
+    position: relative; overflow: hidden;
+    background: linear-gradient(135deg, #FFE8B5 0%, #FFCFA0 40%, #FFB5C5 100%);
+    padding: 80px 24px 100px;
+  }
+  .hero::before, .hero::after {
+    content: ""; position: absolute; border-radius: 50%;
+    filter: blur(60px); opacity: 0.5;
+  }
+  .hero::before { width: 400px; height: 400px; background: var(--yellow); top: -100px; right: -100px; }
+  .hero::after { width: 300px; height: 300px; background: var(--secondary); bottom: -80px; left: -80px; }
+  .hero-inner {
+    max-width: 1200px; margin: 0 auto; position: relative;
+    display: grid; grid-template-columns: 1.1fr 1fr; gap: 60px; align-items: center;
+  }
+  .hero h1 { font-size: clamp(32px, 5vw, 56px); line-height: 1.15; margin-bottom: 20px; }
+  .hero h1 .highlight { color: var(--primary-dark); }
+  .hero .tagline { font-size: 20px; color: var(--ink); opacity: 0.85; margin-bottom: 32px; }
+  .cta-group { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 14px 26px; border-radius: 999px; font-weight: 600;
+    font-size: 16px; border: 0; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
+    font-family: inherit;
+  }
+  .btn-primary {
+    background: var(--primary); color: white;
+    box-shadow: 0 8px 20px rgba(255, 154, 60, 0.4);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(255, 154, 60, 0.5); }
+  .btn-wa {
+    background: #25D366; color: white;
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+  }
+  .btn-wa:hover { transform: translateY(-2px); }
+  .btn-outline {
+    background: white; color: var(--ink); border: 2px solid rgba(44,44,84,0.1);
+  }
+  .btn-outline:hover { border-color: var(--primary); color: var(--primary-dark); }
+
+  .hero-illustration {
+    position: relative; aspect-ratio: 1; max-width: 480px; margin: 0 auto;
+  }
+  .float-card {
+    position: absolute; background: white; border-radius: var(--radius);
+    padding: 16px 20px; box-shadow: var(--shadow-lg);
+    display: flex; align-items: center; gap: 10px;
+    animation: float 4s ease-in-out infinite;
+  }
+  .float-card .emoji { font-size: 28px; }
+  .float-card .label { font-size: 13px; font-weight: 600; }
+  .float-card .sub { font-size: 11px; color: var(--muted); }
+  .fc-1 { top: 10%; left: -5%; animation-delay: 0s; }
+  .fc-2 { top: 30%; right: -10%; animation-delay: 1s; }
+  .fc-3 { bottom: 20%; left: 5%; animation-delay: 2s; }
+  .fc-4 { bottom: 5%; right: 0%; animation-delay: 1.5s; }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+  .hero-circle {
+    position: absolute; inset: 6%;
+    background: #fff;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(255, 154, 60, 0.35);
+    border: 8px solid #fff;
+  }
+  .hero-circle img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* SECTIONS */
+  section { padding: 80px 24px; }
+  .container { max-width: 1200px; margin: 0 auto; }
+  .section-head { text-align: center; margin-bottom: 56px; }
+  .eyebrow {
+    display: inline-block; color: var(--primary-dark); font-weight: 700;
+    letter-spacing: 2px; font-size: 13px; text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .section-head h2 { font-size: clamp(28px, 4vw, 42px); margin-bottom: 12px; }
+  .section-head p { color: var(--muted); max-width: 640px; margin: 0 auto; font-size: 17px; }
+
+  /* ABOUT */
+  .about { background: white; }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  .about-visual {
+    aspect-ratio: 4/3; border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+  }
+  .about-visual img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .about h3 { font-size: 28px; margin-bottom: 16px; }
+  .about p { color: var(--muted); font-size: 17px; margin-bottom: 20px; }
+  .about-tags { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+  .tag {
+    background: var(--cream); color: var(--primary-dark);
+    padding: 8px 16px; border-radius: 999px; font-size: 14px; font-weight: 600;
+  }
+
+  /* FEATURES */
+  .features { background: var(--cream); }
+  .feature-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+  }
+  .feature {
+    background: white; padding: 32px 24px; border-radius: var(--radius);
+    text-align: center; box-shadow: var(--shadow);
+    transition: transform 0.3s;
+  }
+  .feature:hover { transform: translateY(-6px); }
+  .feature-icon {
+    width: 64px; height: 64px; border-radius: 50%;
+    display: grid; place-items: center; margin: 0 auto 16px;
+    font-size: 32px;
+  }
+  .feature:nth-child(1) .feature-icon { background: #FFE8B5; }
+  .feature:nth-child(2) .feature-icon { background: #CCE9FF; }
+  .feature:nth-child(3) .feature-icon { background: #FFD6E1; }
+  .feature:nth-child(4) .feature-icon { background: #D4F5DB; }
+  .feature h4 { font-size: 18px; margin-bottom: 8px; }
+  .feature p { font-size: 14px; color: var(--muted); }
+
+  /* PROGRAMS */
+  .programs { background: white; }
+  .program-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
+  }
+  .program {
+    background: var(--cream); padding: 32px; border-radius: var(--radius);
+    position: relative; overflow: hidden; transition: transform 0.3s;
+    border: 2px solid transparent;
+  }
+  .program:hover { transform: translateY(-4px); border-color: var(--primary); }
+  .program-icon {
+    font-size: 44px; margin-bottom: 16px;
+  }
+  .program h4 { font-size: 20px; margin-bottom: 6px; }
+  .program .en { color: var(--muted); font-size: 14px; margin-bottom: 14px; font-weight: 500; }
+  .program p { font-size: 15px; color: var(--muted); }
+
+  /* GALLERY */
+  .gallery { background: var(--cream); }
+  .gallery-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .gallery-item {
+    aspect-ratio: 1; border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow); transition: transform 0.3s;
+    cursor: pointer; background: #eee;
+  }
+  .gallery-item:hover { transform: scale(1.03); }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .gallery-note {
+    text-align: center; margin-top: 24px; color: var(--muted); font-size: 14px;
+  }
+
+  /* CONTACT */
+  .contact { background: linear-gradient(135deg, var(--ink) 0%, #4A4A8C 100%); color: white; }
+  .contact .section-head h2 { color: white; }
+  .contact .section-head p { color: rgba(255,255,255,0.75); }
+  .contact .section-head .eyebrow { color: var(--yellow); }
+  .contact-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    margin-bottom: 40px;
+  }
+  .contact-card {
+    background: rgba(255,255,255,0.08); border-radius: var(--radius);
+    padding: 28px; text-align: center;
+    border: 1px solid rgba(255,255,255,0.12);
+    transition: all 0.3s;
+  }
+  .contact-card:hover {
+    background: rgba(255,255,255,0.12);
+    transform: translateY(-4px);
+  }
+  .contact-card .icon {
+    width: 56px; height: 56px; border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    display: grid; place-items: center; margin: 0 auto 16px;
+    font-size: 26px;
+  }
+  .contact-card h4 { margin-bottom: 8px; font-size: 18px; }
+  .contact-card a {
+    color: var(--yellow); font-weight: 600; font-size: 17px;
+    display: inline-block; margin-top: 4px;
+  }
+  .contact-cta {
+    text-align: center; padding: 40px 24px;
+    background: rgba(255,255,255,0.06); border-radius: var(--radius);
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+  .contact-cta h3 { font-size: 26px; margin-bottom: 12px; }
+  .contact-cta p { color: rgba(255,255,255,0.75); margin-bottom: 24px; }
+
+  /* FOOTER */
+  footer {
+    background: #1F1F3D; color: rgba(255,255,255,0.7);
+    padding: 40px 24px; text-align: center; font-size: 14px;
+  }
+  footer .foot-brand { color: white; font-weight: 700; margin-bottom: 8px; font-size: 18px; }
+  footer a { color: var(--yellow); }
+
+  /* Floating WhatsApp */
+  .fab-wa {
+    position: fixed; bottom: 24px; right: 24px; z-index: 99;
+    width: 60px; height: 60px; border-radius: 50%;
+    background: #25D366; color: white;
+    display: grid; place-items: center;
+    font-size: 30px;
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+    transition: transform 0.2s;
+  }
+  .fab-wa:hover { transform: scale(1.1); }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .nav-links.open {
+      display: flex; flex-direction: column; gap: 16px;
+      position: absolute; top: 76px; left: 0; right: 0;
+      background: var(--cream); padding: 20px 24px;
+      border-bottom: 2px solid rgba(255,154,60,0.2);
+    }
+    .menu-btn { display: block; }
+    .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+    .hero-illustration { max-width: 320px; }
+    .hero-circle { font-size: 100px; }
+    .about-grid { grid-template-columns: 1fr; gap: 32px; }
+    .feature-grid { grid-template-columns: repeat(2, 1fr); }
+    .program-grid { grid-template-columns: 1fr; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .contact-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 480px) {
+    section { padding: 60px 20px; }
+    .hero { padding: 60px 20px 80px; }
+    .feature-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="#home" class="brand">
+      <img src="images/tsc-09.jpg" alt="Tadika Suria Cemerlang logo" class="brand-logo" />
+      <div>
+        <div class="brand-name">Tadika Suria Cemerlang</div>
+        <div class="brand-sub" data-i18n="brandSub">小可爱幼儿园</div>
+      </div>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#about" data-i18n="navAbout">关于</a>
+      <a href="#features" data-i18n="navFeatures">特色</a>
+      <a href="#programs" data-i18n="navPrograms">课程</a>
+      <a href="#gallery" data-i18n="navGallery">相册</a>
+      <a href="#contact" data-i18n="navContact">联系</a>
+      <div class="lang-switch">
+        <button data-lang-btn="zh" class="active">中</button>
+        <button data-lang-btn="en">EN</button>
+        <button data-lang-btn="ms">BM</button>
+      </div>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="menu">☰</button>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <h1 data-i18n="heroTitle">让孩子在<span class="highlight">爱与关怀</span>中快乐成长 🌱</h1>
+      <p class="tagline" data-i18n="heroTagline">"专心于爱,专注于教" — 给孩子一个温暖、富有创意、充满欢笑的学习家园</p>
+      <div class="cta-group">
+        <a href="https://wa.me/60122845185" class="btn btn-wa" target="_blank" rel="noopener">
+          <span>💬</span><span data-i18n="ctaWa">WhatsApp 咨询</span>
+        </a>
+        <a href="#programs" class="btn btn-outline" data-i18n="ctaPrograms">查看课程</a>
+      </div>
+    </div>
+    <div class="hero-illustration">
+      <div class="hero-circle"><img src="images/tsc-01.jpg" alt="Open for registration" /></div>
+      <div class="float-card fc-1">
+        <span class="emoji">📚</span>
+        <div>
+          <div class="label" data-i18n="floatCurriculum">完整课程</div>
+          <div class="sub" data-i18n="floatCurriculumSub">Complete Curriculum</div>
+        </div>
+      </div>
+      <div class="float-card fc-2">
+        <span class="emoji">🎨</span>
+        <div>
+          <div class="label" data-i18n="floatArt">艺术创意</div>
+          <div class="sub" data-i18n="floatArtSub">Creative Arts</div>
+        </div>
+      </div>
+      <div class="float-card fc-3">
+        <span class="emoji">🧮</span>
+        <div>
+          <div class="label" data-i18n="floatMath">珠心算</div>
+          <div class="sub" data-i18n="floatMathSub">Mental Arithmetic</div>
+        </div>
+      </div>
+      <div class="float-card fc-4">
+        <span class="emoji">❤️</span>
+        <div>
+          <div class="label" data-i18n="floatCare">爱心关怀</div>
+          <div class="sub" data-i18n="floatCareSub">Loving Care</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual"><img src="images/tsc-04.jpg" alt="Classroom" /></div>
+      <div>
+        <div class="eyebrow" data-i18n="aboutEyebrow">关于我们</div>
+        <h3 data-i18n="aboutTitle">一个让孩子快乐玩耍、用心学习的地方</h3>
+        <p data-i18n="aboutP1">Tadika Suria Cemerlang 小可爱幼儿园秉持 "专心于爱、专注于教" 的和谐文化,致力于为每一位孩子打造温馨、安全、富有创造力的学习环境。</p>
+        <p data-i18n="aboutP2">我们相信每一个孩子都是独特的。通过整体学习、因材施教与扎实的基础训练,让孩子在爱与鼓励中自信成长。</p>
+        <div class="about-tags">
+          <span class="tag" data-i18n="tag1">✨ 多语教学</span>
+          <span class="tag" data-i18n="tag2">🌟 爱心环境</span>
+          <span class="tag" data-i18n="tag3">🎯 小班教学</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="features" id="features">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow" data-i18n="featuresEyebrow">教学特色</div>
+      <h2 data-i18n="featuresTitle">为什么家长选择我们</h2>
+      <p data-i18n="featuresSub">四大教学核心,让孩子赢在起跑线上</p>
+    </div>
+    <div class="feature-grid">
+      <div class="feature">
+        <div class="feature-icon">🌈</div>
+        <h4 data-i18n="f1Title">整体学习体验</h4>
+        <p data-i18n="f1Desc">Holistic Learning Experience — 全方位发展德智体美</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🔬</div>
+        <h4 data-i18n="f2Title">完整研究课程</h4>
+        <p data-i18n="f2Desc">Complete Research Based — 依据幼教研究设计课程</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🎯</div>
+        <h4 data-i18n="f3Title">特别辅导</h4>
+        <p data-i18n="f3Desc">Specific Coaching — 针对性教学,关注每位孩子</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🏛️</div>
+        <h4 data-i18n="f4Title">扎实的基础</h4>
+        <p data-i18n="f4Desc">Strong Foundation — 打好学前基础,顺利衔接小学</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="programs" id="programs">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow" data-i18n="programsEyebrow">六大课程</div>
+      <h2 data-i18n="programsTitle">我们提供的服务</h2>
+      <p data-i18n="programsSub">从托儿所到小学,陪伴孩子每一个成长阶段</p>
+    </div>
+    <div class="program-grid">
+      <div class="program">
+        <div class="program-icon">🧸</div>
+        <h4 data-i18n="p1Title">托儿所</h4>
+        <div class="en">Day Care</div>
+        <p data-i18n="p1Desc">全日托管,提供安全温馨的照顾,专业老师全程陪伴。</p>
+      </div>
+      <div class="program">
+        <div class="program-icon">📖</div>
+        <h4 data-i18n="p2Title">功课班</h4>
+        <div class="en">Home Guidance</div>
+        <p data-i18n="p2Desc">协助孩子完成学校功课,培养独立思考与学习习惯。</p>
+      </div>
+      <div class="program">
+        <div class="program-icon">🧮</div>
+        <h4 data-i18n="p3Title">珠心算</h4>
+        <div class="en">Mental Arithmetic</div>
+        <p data-i18n="p3Desc">训练快速计算能力,开发左右脑,增强专注力与记忆力。</p>
+      </div>
+      <div class="program">
+        <div class="program-icon">🎨</div>
+        <h4 data-i18n="p4Title">美术班</h4>
+        <div class="en">Art Class</div>
+        <p data-i18n="p4Desc">激发孩子的创造力与想象力,从绘画中建立自信。</p>
+      </div>
+      <div class="program">
+        <div class="program-icon">✏️</div>
+        <h4 data-i18n="p5Title">小学补习班</h4>
+        <div class="en">Primary Tuition</div>
+        <p data-i18n="p5Desc">针对小学课程进行辅导,强化学习基础,提升学业成绩。</p>
+      </div>
+      <div class="program">
+        <div class="program-icon">🏠</div>
+        <h4 data-i18n="p6Title">小学安亲班</h4>
+        <div class="en">Primary Day Care</div>
+        <p data-i18n="p6Desc">放学后的安心托管,让家长安心工作,孩子快乐学习。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="gallery">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow" data-i18n="galleryEyebrow">校园生活</div>
+      <h2 data-i18n="galleryTitle">孩子们的精彩时刻</h2>
+      <p data-i18n="gallerySub">快乐学习、用心玩耍、共同成长</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="images/tsc-04.jpg" alt="Holistic Learning Experience" /></div>
+      <div class="gallery-item"><img src="images/tsc-05.jpg" alt="Complete Research Based" /></div>
+      <div class="gallery-item"><img src="images/tsc-06.jpg" alt="Specific Coaching" /></div>
+      <div class="gallery-item"><img src="images/tsc-07.jpg" alt="Strong Foundation" /></div>
+      <div class="gallery-item"><img src="images/tsc-02.jpg" alt="Mini Concert 2024" /></div>
+      <div class="gallery-item"><img src="images/tsc-03.jpg" alt="Mid-Autumn Festival Party" /></div>
+    </div>
+    <p class="gallery-note" data-i18n="galleryNote">📷 想看更多照片?欢迎关注我们的 Facebook 专页</p>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow" data-i18n="contactEyebrow">联系我们</div>
+      <h2 data-i18n="contactTitle">准备好让孩子加入了吗?</h2>
+      <p data-i18n="contactSub">欢迎预约参观,与我们面对面交流</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="icon">📞</div>
+        <h4 data-i18n="cc1">电话</h4>
+        <a href="tel:+60362428939">03-6242 8939</a>
+      </div>
+      <div class="contact-card">
+        <div class="icon">📱</div>
+        <h4 data-i18n="cc2">手机 / WhatsApp</h4>
+        <a href="https://wa.me/60122845185" target="_blank" rel="noopener">012-284 5185</a>
+      </div>
+      <div class="contact-card">
+        <div class="icon">📘</div>
+        <h4>Facebook</h4>
+        <a href="https://www.facebook.com/p/Tadika-Suria-Cemerlang-100040504195939/" target="_blank" rel="noopener">Tadika Suria Cemerlang</a>
+      </div>
+    </div>
+    <div class="contact-cta">
+      <h3 data-i18n="ctaTitle">🎉 现在开始招生!</h3>
+      <p data-i18n="ctaDesc">快速回复 · 免费参观 · 专人讲解</p>
+      <a href="https://wa.me/60122845185?text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20Tadika%20Suria%20Cemerlang" class="btn btn-wa" target="_blank" rel="noopener">
+        <span>💬</span><span data-i18n="ctaBtn">立即 WhatsApp 咨询</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-brand">Tadika Suria Cemerlang · 小可爱幼儿园</div>
+  <p data-i18n="footAddr">📍 地址待更新 · Address coming soon</p>
+  <p style="margin-top:12px;">© 2026 Tadika Suria Cemerlang. <span data-i18n="footRights">保留所有权利</span>.</p>
+</footer>
+
+<a href="https://wa.me/60122845185" class="fab-wa" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+
+<script>
+  const translations = {
+    zh: {
+      brandSub: "小可爱幼儿园",
+      navAbout: "关于", navFeatures: "特色", navPrograms: "课程", navGallery: "相册", navContact: "联系",
+      heroTitle: '让孩子在<span class="highlight">爱与关怀</span>中快乐成长 🌱',
+      heroTagline: '"专心于爱,专注于教" — 给孩子一个温暖、富有创意、充满欢笑的学习家园',
+      ctaWa: "WhatsApp 咨询", ctaPrograms: "查看课程",
+      floatCurriculum: "完整课程", floatCurriculumSub: "Complete Curriculum",
+      floatArt: "艺术创意", floatArtSub: "Creative Arts",
+      floatMath: "珠心算", floatMathSub: "Mental Arithmetic",
+      floatCare: "爱心关怀", floatCareSub: "Loving Care",
+      aboutEyebrow: "关于我们",
+      aboutTitle: "一个让孩子快乐玩耍、用心学习的地方",
+      aboutP1: "Tadika Suria Cemerlang 小可爱幼儿园秉持 \"专心于爱、专注于教\" 的和谐文化,致力于为每一位孩子打造温馨、安全、富有创造力的学习环境。",
+      aboutP2: "我们相信每一个孩子都是独特的。通过整体学习、因材施教与扎实的基础训练,让孩子在爱与鼓励中自信成长。",
+      tag1: "✨ 多语教学", tag2: "🌟 爱心环境", tag3: "🎯 小班教学",
+      featuresEyebrow: "教学特色", featuresTitle: "为什么家长选择我们", featuresSub: "四大教学核心,让孩子赢在起跑线上",
+      f1Title: "整体学习体验", f1Desc: "Holistic Learning — 全方位发展德智体美",
+      f2Title: "完整研究课程", f2Desc: "Research Based — 依据幼教研究设计课程",
+      f3Title: "特别辅导", f3Desc: "Specific Coaching — 针对性教学,关注每位孩子",
+      f4Title: "扎实的基础", f4Desc: "Strong Foundation — 打好学前基础,顺利衔接小学",
+      programsEyebrow: "六大课程", programsTitle: "我们提供的服务", programsSub: "从托儿所到小学,陪伴孩子每一个成长阶段",
+      p1Title: "托儿所", p1Desc: "全日托管,提供安全温馨的照顾,专业老师全程陪伴。",
+      p2Title: "功课班", p2Desc: "协助孩子完成学校功课,培养独立思考与学习习惯。",
+      p3Title: "珠心算", p3Desc: "训练快速计算能力,开发左右脑,增强专注力与记忆力。",
+      p4Title: "美术班", p4Desc: "激发孩子的创造力与想象力,从绘画中建立自信。",
+      p5Title: "小学补习班", p5Desc: "针对小学课程进行辅导,强化学习基础,提升学业成绩。",
+      p6Title: "小学安亲班", p6Desc: "放学后的安心托管,让家长安心工作,孩子快乐学习。",
+      galleryEyebrow: "校园生活", galleryTitle: "孩子们的精彩时刻", gallerySub: "快乐学习、用心玩耍、共同成长",
+      galleryNote: "📷 想看更多照片?欢迎关注我们的 Facebook 专页",
+      contactEyebrow: "联系我们", contactTitle: "准备好让孩子加入了吗?", contactSub: "欢迎预约参观,与我们面对面交流",
+      cc1: "电话", cc2: "手机 / WhatsApp",
+      ctaTitle: "🎉 现在开始招生!", ctaDesc: "快速回复 · 免费参观 · 专人讲解", ctaBtn: "立即 WhatsApp 咨询",
+      footAddr: "📍 地址待更新 · Address coming soon", footRights: "保留所有权利"
+    },
+    en: {
+      brandSub: "Little Lovely Kindergarten",
+      navAbout: "About", navFeatures: "Features", navPrograms: "Programs", navGallery: "Gallery", navContact: "Contact",
+      heroTitle: 'Where children grow with <span class="highlight">love & care</span> 🌱',
+      heroTagline: '"Focus on Love, Dedicated to Teaching" — A warm, creative and joyful learning home for your child',
+      ctaWa: "Ask on WhatsApp", ctaPrograms: "See Programs",
+      floatCurriculum: "Full Program", floatCurriculumSub: "Complete Curriculum",
+      floatArt: "Creative Arts", floatArtSub: "Art & Craft",
+      floatMath: "Mental Math", floatMathSub: "Mental Arithmetic",
+      floatCare: "Loving Care", floatCareSub: "Safe & Caring",
+      aboutEyebrow: "About Us",
+      aboutTitle: "Where kids play joyfully and learn with heart",
+      aboutP1: "Tadika Suria Cemerlang is built on the philosophy of \"Focus on Love, Dedicated to Teaching\" — creating a warm, safe and creative environment for every child.",
+      aboutP2: "We believe every child is unique. Through holistic learning, personalised coaching and a strong foundation, we help children grow with confidence, love and encouragement.",
+      tag1: "✨ Multilingual", tag2: "🌟 Caring Environment", tag3: "🎯 Small Class Size",
+      featuresEyebrow: "Our Approach", featuresTitle: "Why parents choose us", featuresSub: "Four teaching pillars that give your child a strong start",
+      f1Title: "Holistic Learning", f1Desc: "All-round development of mind, body and heart",
+      f2Title: "Research Based", f2Desc: "Curriculum grounded in early childhood research",
+      f3Title: "Specific Coaching", f3Desc: "Personalised attention for every child",
+      f4Title: "Strong Foundation", f4Desc: "Preparing children for a smooth transition to primary school",
+      programsEyebrow: "Our Programs", programsTitle: "What we offer", programsSub: "From daycare to primary — we are with your child every step",
+      p1Title: "Day Care", p1Desc: "Full-day care with caring teachers in a safe and warm environment.",
+      p2Title: "Home Guidance", p2Desc: "Homework support that builds independent thinking and learning habits.",
+      p3Title: "Mental Arithmetic", p3Desc: "Abacus-based training to boost speed, focus and memory.",
+      p4Title: "Art Class", p4Desc: "Inspire creativity and imagination — building confidence through art.",
+      p5Title: "Primary Tuition", p5Desc: "Subject tuition for primary school pupils to strengthen academic foundations.",
+      p6Title: "Primary Day Care", p6Desc: "After-school care so parents can work in peace and kids keep learning happily.",
+      galleryEyebrow: "School Life", galleryTitle: "Moments from our school", gallerySub: "Happy learning, joyful play, growing together",
+      galleryNote: "📷 Want to see more? Follow our Facebook page",
+      contactEyebrow: "Get in Touch", contactTitle: "Ready to enrol your child?", contactSub: "Book a visit and come see us in person",
+      cc1: "Phone", cc2: "Mobile / WhatsApp",
+      ctaTitle: "🎉 Enrolment Open Now!", ctaDesc: "Quick reply · Free visit · Personal tour", ctaBtn: "Chat on WhatsApp Now",
+      footAddr: "📍 Address coming soon", footRights: "All rights reserved"
+    },
+    ms: {
+      brandSub: "Tadika Suria Cemerlang",
+      navAbout: "Tentang", navFeatures: "Keistimewaan", navPrograms: "Program", navGallery: "Galeri", navContact: "Hubungi",
+      heroTitle: 'Tempat anak membesar dengan <span class="highlight">kasih sayang</span> 🌱',
+      heroTagline: '"Fokus pada Kasih, Komited dalam Pengajaran" — Rumah pembelajaran yang hangat, kreatif dan penuh keceriaan',
+      ctaWa: "WhatsApp Kami", ctaPrograms: "Lihat Program",
+      floatCurriculum: "Kurikulum Lengkap", floatCurriculumSub: "Complete Curriculum",
+      floatArt: "Seni Kreatif", floatArtSub: "Creative Arts",
+      floatMath: "Mental Aritmetik", floatMathSub: "Mental Arithmetic",
+      floatCare: "Penuh Kasih", floatCareSub: "Loving Care",
+      aboutEyebrow: "Tentang Kami",
+      aboutTitle: "Tempat anak bermain gembira & belajar dengan sepenuh hati",
+      aboutP1: "Tadika Suria Cemerlang berpegang kepada prinsip \"Fokus pada Kasih, Komited dalam Pengajaran\" — mewujudkan persekitaran yang mesra, selamat dan kreatif untuk setiap anak.",
+      aboutP2: "Kami percaya setiap anak unik. Melalui pembelajaran holistik, bimbingan khusus dan asas yang kukuh, kami membantu anak membesar dengan yakin, penuh kasih dan dorongan.",
+      tag1: "✨ Pelbagai Bahasa", tag2: "🌟 Persekitaran Mesra", tag3: "🎯 Kelas Kecil",
+      featuresEyebrow: "Pendekatan Kami", featuresTitle: "Mengapa ibu bapa memilih kami", featuresSub: "Empat tunjang pengajaran yang memberi permulaan terbaik",
+      f1Title: "Pembelajaran Holistik", f1Desc: "Perkembangan menyeluruh minda, fizikal dan emosi",
+      f2Title: "Berasaskan Penyelidikan", f2Desc: "Kurikulum berdasarkan penyelidikan pendidikan awal",
+      f3Title: "Bimbingan Khusus", f3Desc: "Perhatian peribadi untuk setiap anak",
+      f4Title: "Asas Kukuh", f4Desc: "Menyediakan anak untuk ke sekolah rendah dengan yakin",
+      programsEyebrow: "Program Kami", programsTitle: "Apa yang kami tawarkan", programsSub: "Dari taska hingga sekolah rendah — kami bersama anak anda",
+      p1Title: "Taska (Day Care)", p1Desc: "Penjagaan sepanjang hari dengan guru mesra dalam persekitaran selamat.",
+      p2Title: "Kelas Bimbingan", p2Desc: "Bantuan kerja rumah yang membina pemikiran bebas dan tabiat belajar.",
+      p3Title: "Mental Aritmetik", p3Desc: "Latihan sempoa untuk kelajuan, fokus dan daya ingatan.",
+      p4Title: "Kelas Seni", p4Desc: "Mencetus kreativiti dan imaginasi — membina keyakinan melalui seni.",
+      p5Title: "Tuisyen Sekolah Rendah", p5Desc: "Tuisyen subjek untuk murid sekolah rendah bagi mengukuhkan asas akademik.",
+      p6Title: "Pusat Jagaan Harian", p6Desc: "Penjagaan selepas sekolah supaya ibu bapa tenang dan anak terus belajar.",
+      galleryEyebrow: "Kehidupan Sekolah", galleryTitle: "Saat-saat istimewa", gallerySub: "Belajar gembira, bermain ceria, membesar bersama",
+      galleryNote: "📷 Mahu lihat lebih banyak? Ikuti halaman Facebook kami",
+      contactEyebrow: "Hubungi Kami", contactTitle: "Sedia daftarkan anak anda?", contactSub: "Tempah lawatan dan jumpa kami secara peribadi",
+      cc1: "Telefon", cc2: "Mudah Alih / WhatsApp",
+      ctaTitle: "🎉 Pendaftaran Dibuka!", ctaDesc: "Balasan pantas · Lawatan percuma · Tour peribadi", ctaBtn: "WhatsApp Sekarang",
+      footAddr: "📍 Alamat akan dikemas kini", footRights: "Hak cipta terpelihara"
+    }
+  };
+
+  function setLang(lang) {
+    const dict = translations[lang];
+    if (!dict) return;
+    document.documentElement.setAttribute('data-lang', lang);
+    document.documentElement.setAttribute('lang', lang === 'zh' ? 'zh' : (lang === 'ms' ? 'ms' : 'en'));
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (dict[key] !== undefined) el.innerHTML = dict[key];
+    });
+    document.querySelectorAll('[data-lang-btn]').forEach(btn => {
+      btn.classList.toggle('active', btn.getAttribute('data-lang-btn') === lang);
+    });
+    localStorage.setItem('lang', lang);
+  }
+
+  document.querySelectorAll('[data-lang-btn]').forEach(btn => {
+    btn.addEventListener('click', () => setLang(btn.getAttribute('data-lang-btn')));
+  });
+
+  const savedLang = localStorage.getItem('lang');
+  if (savedLang) setLang(savedLang);
+
+  const menuBtn = document.getElementById('menuBtn');
+  const navLinks = document.getElementById('navLinks');
+  menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+</script>
+
+</body>
+</html>
